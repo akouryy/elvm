@@ -40,10 +40,14 @@ void dec_indent() {
   g_indent--;
 }
 
+void emit_indent() {
+  for (int i = 0; i < g_indent; i++)
+    putchar(' ');
+}
+
 void emit_line(const char* fmt, ...) {
   if (fmt[0]) {
-    for (int i = 0; i < g_indent; i++)
-      putchar(' ');
+    emit_indent();
     va_list ap;
     va_start(ap, fmt);
     vprintf(fmt, ap);

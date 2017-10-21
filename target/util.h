@@ -23,6 +23,7 @@ void error(const char* fmt, ...);
 
 void inc_indent();
 void dec_indent();
+void emit_indent();
 void emit_line(const char* fmt, ...);
 
 Op normalize_cond(Op op, bool flip);

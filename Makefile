@@ -86,6 +86,7 @@ ELC_SRCS := \
 	forth.c \
 	fs.c \
 	go.c \
+	hs.c \
 	i.c \
 	java.c \
 	js.c \
@@ -424,6 +425,15 @@ include target.mk
 TARGET := ll
 RUNNER := lli
 include target.mk
+
+TARGET := hs
+RUNNER := tools/runhs.sh
+TOOL := ghc
+ifndef FULL
+TEST_FILTER := out/elc.c.eir.hs out/eli.c.eir.hs
+endif
+include target.mk
+$(OUT.eir.hs.out): tools/runhs.sh
 
 test: $(TEST_RESULTS)
 
